@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industria Espacial Global – Dashboard Interactivo 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #1e293b);
+      color: #f8fafc;
+      scroll-behavior: smooth;
+    }
+    .header-space {
+      background: linear-gradient(to right, #0ea5e9, #3b82f6);
+    }
+    .card {
+      background-color: #1e293b;
+      transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 25px -5px rgba(14, 165, 233, 0.2);
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-space text-white py-6 shadow-md">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Industria Espacial Global</h1>
+      <span class="text-sm">Sebastián Díaz Tamayo • Proyecto Interactivo</span>
+    </div>
+  </header>
+
+  <section class="text-center py-16">
+    <h2 class="text-4xl font-bold mb-4 fade-in">Panorama Comercial del Espacio Exterior 2025</h2>
+    <p class="text-lg text-slate-300 max-w-2xl mx-auto fade-in">
+      Este dashboard explora el crecimiento de la economía espacial, la carrera por satélites, el turismo orbital y las inversiones privadas. Fuentes: Space Foundation, NASA, Statista.
+    </p>
+  </section>
+
+  <section class="py-12">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-sky-400 font-medium mb-2">Valor del Sector Espacial</h4>
+        <p class="text-4xl font-bold text-white">$546B</p>
+        <p class="text-sm text-slate-400">Cifra global 2023</p>
+      </div>
+      <div class="p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-indigo-400 font-medium mb-2">Satélites en Órbita</h4>
+        <p class="text-4xl font-bold text-white">8.378</p>
+        <p class="text-sm text-slate-400">En operación en 2024</p>
+      </div>
+      <div class="p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-purple-400 font-medium mb-2">Inversión Privada</h4>
+        <p class="text-4xl font-bold text-white">$272B</p>
+        <p class="text-sm text-slate-400">Capital desde 2010</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-white">Crecimiento de Satélites Activos</h3>
+        <canvas id="satelliteChart" height="250"></canvas>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4 text-white">Segmentos del Mercado Espacial</h3>
+        <div id="segmentChart" class="h-64"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-slate-800">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6 text-white">Hallazgos Estelares</h3>
+      <ul class="list-disc list-inside text-lg text-slate-300 space-y-2">
+        <li>Más del 60% de los satélites activos pertenecen a operadores comerciales.</li>
+        <li>Starlink de SpaceX representa el 45% de todos los satélites en órbita.</li>
+        <li>Turismo espacial crece con Blue Origin, Virgin Galactic y Space Perspective.</li>
+        <li>La minería lunar y bases en Marte son foco de inversión para 2030.</li>
+        <li>IA y propulsión eléctrica están revolucionando la exploración interplanetaria.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="header-space text-white py-6">
+    <!-- About Me -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="/assets/working.jpg">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Sebastian Diaz Tamayo</h3>
+                    <p class="text-amazon-orange font-medium mb-4">Data Analyst | Amazon</p>
+                    <p class="text-gray-600 mb-4">Professional with 5 years of experience in data analysis, specialized in e-commerce. Expert in SQL, Python, and data visualization. Certified in Data Science and Machine Learning.</p>
+                    <div class="flex space-x-4">
+                        <a href="www.linkedin.com/in/sebastiandiaztamayo" class="text-amazon-orange hover:underline font-medium">LinkedIn</a>
+                        <a href="https://github.com/nholasebsas?tab=projects" class="text-amazon-orange hover:underline font-medium">GitHub</a>
+                        <a href="www.instagram.com/nholasebsas" class="text-amazon-orange hover:underline font-medium">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="amazon-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm opacity-80">Professional Portfolio</p>
+                    <p class="text-xs opacity-60">Updated: August 2025</p>
+                </div>
+                <div>
+                    <p class="text-sm opacity-80">Developed with Python, SQL, and Power BI</p>
+                    <p class="text-xs opacity-60">All data is anonymized and complies with privacy policies.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  <section class="py-12 bg-white text-center">
+    <a href="/pdfs/Space Industry.pdf" download class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out">
+      📄 Download Project Summary (PDF)
+    </a>
+  </section>
+
+</footer>
+  <script>
+    const ctxSatellite = document.getElementById('satelliteChart').getContext('2d');
+    new Chart(ctxSatellite, {
+      type: 'line',
+      data: {
+        labels: ['2015','2017','2019','2021','2023','2025'],
+        datasets: [{
+          label: 'Satélites Activos',
+          data: [1340, 1750, 2200, 3900, 7300, 9600],
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59,130,246,0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: {
+          y: {
+            title: { display: true, text: 'Número de Satélites' },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const chartSegment = new ApexCharts(document.querySelector("#segmentChart"), {
+      chart: { type: 'donut', height: '100%' },
+      series: [48, 22, 18, 7, 5],
+      labels: ['SatCom', 'Observación Tierra', 'Lanzadores', 'Turismo Espacial', 'Exploración'],
+      colors: ['#0ea5e9','#9333ea','#14b8a6','#f59e0b','#ef4444'],
+      legend: { position: 'bottom' },
+      tooltip: { y: { formatter: val => val + '%' } },
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              total: {
+                show: true,
+                label: 'Total',
+                formatter: () => '100%'
+              }
+            }
+          }
+        }
+      }
+    });
+    chartSegment.render();
+  </script>
+</body>
+</html>

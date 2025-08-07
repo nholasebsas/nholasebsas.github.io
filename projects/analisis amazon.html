@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Analítica Avanzada - Sebastián Díaz Tamayo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        .amazon-orange { color: #FF9900; }
+        .amazon-dark { background-color: #131921; }
+        .data-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .gradient-bg { background: linear-gradient(135deg, #f6f6f6 0%, #e9e9e9 100%); }
+        
+        /* Animation for metrics */
+        @keyframes counter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-metric { animation: counter 1s ease-out forwards; }
+    </style>
+</head>
+<body class="font-sans antialiased gradient-bg">
+    <!-- Header -->
+    <header class="amazon-dark text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a6bdd0a0-2b03-4e1a-aba7-02fdfed1fdcd.png" alt="Logo Amazon estilizado en tonos naranja y negro" class="h-10 w-10">
+                <h1 class="text-xl font-bold">Portafolio de Analítica Avanzada</h1>
+            </div>
+            <div class="text-right">
+                <p class="text-xs opacity-80">Sebastián Díaz Tamayo</p>
+                <p class="text-sm amazon-orange font-medium">Analista de Datos | Amazon</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 amazon-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Análisis Estratégico de Ventas<br>Plataforma Amazon USA</h2>
+            <p class="text-lg opacity-90 max-w-3xl mx-auto">Proyecto completo de ciencia de datos con procesamiento ETL, análisis estadístico, modelado predictivo y visualización ejecutiva</p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <button class="bg-amazon-orange hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium transition">Explorar Dashboard</button>
+                <button class="border border-white text-white hover:bg-white hover:text-amazon-dark px-6 py-2 rounded-md font-medium transition">Ver Metodología</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Overview -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">KPIs Principales - Q3 2025</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Metric 1 -->
+                <div class="data-card bg-white p-6 rounded-lg shadow-md border-l-4 border-amazon-orange hover:border-orange-600 transition-all duration-300">
+                    <h4 class="text-gray-500 font-medium mb-2">Ingresos Totales</h4>
+                    <p class="text-3xl font-bold text-gray-800 animate-metric">$12.8M</p>
+                    <p class="text-sm text-green-600 mt-1">+24% vs Q2</p>
+                </div>
+                <!-- Metric 2 -->
+                <div class="data-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 hover:border-blue-600 transition-all duration-300">
+                    <h4 class="text-gray-500 font-medium mb-2">Unidades Vendidas</h4>
+                    <p class="text-3xl font-bold text-gray-800 animate-metric">428K</p>
+                    <p class="text-sm text-green-600 mt-1">+18% vs Q2</p>
+                </div>
+                <!-- Metric 3 -->
+                <div class="data-card bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500 hover:border-purple-600 transition-all duration-300">
+                    <h4 class="text-gray-500 font-medium mb-2">Clientes Únicos</h4>
+                    <p class="text-3xl font-bold text-gray-800 animate-metric">156K</p>
+                    <p class="text-sm text-green-600 mt-1">+12% vs Q2</p>
+                </div>
+                <!-- Metric 4 -->
+                <div class="data-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500 hover:border-green-600 transition-all duration-300">
+                    <h4 class="text-gray-500 font-medium mb-2">Tasa de Conversión</h4>
+                    <p class="text-3xl font-bold text-gray-800 animate-metric">3.8%</p>
+                    <p class="text-sm text-green-600 mt-1">+0.6pts vs Q2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <div class="md:w-1/4">
+                    <div class="bg-white p-4 rounded-lg shadow-md sticky top-4">
+                        <h4 class="font-bold text-lg mb-4 text-gray-700">Filtros</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
+                            <select class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option>Todas las categorías</option>
+                                <option>Electrónicos</option>
+                                <option>Hogar</option>
+                                <option>Libros</option>
+                                <option>Moda</option>
+                                <option>Juguetes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Rango Fechas</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2" value="Jul 2025 - Sep 2025">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Región</label>
+                            <select class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <option>Todas las regiones</option>
+                                <option>Noreste</option>
+                                <option>Sureste</option>
+                                <option>Midwest</option>
+                                <option>Oeste</option>
+                            </select>
+                        </div>
+                        
+                        <button class="w-full bg-amazon-orange text-white py-2 rounded-md hover:bg-orange-600 transition">Aplicar Filtros</button>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-md mt-4">
+                        <h4 class="font-bold text-lg mb-4 text-gray-700">Hallazgos Clave</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-amazon-orange mt-0.5">•</div>
+                                <p class="ml-2 text-sm text-gray-600">Electrónicos representa el 42% de ingresos con solo 18% del inventario</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-amazon-orange mt-0.5">•</div>
+                                <p class="ml-2 text-sm text-gray-600">Clientes del Oeste tienen un 28% mayor ticket promedio</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-amazon-orange mt-0.5">•</div>
+                                <p class="ml-2 text-sm text-gray-600">Sábados tienen un 40% más conversiones que días laborales</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="md:w-3/4 space-y-8">
+                    <!-- Sales Trend -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-lg text-gray-700">Tendencia de Ventas Mensuales</h4>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 bg-gray-100 text-xs rounded-md">Diario</button>
+                                <button class="px-3 py-1 bg-amazon-orange text-white text-xs rounded-md">Mensual</button>
+                                <button class="px-3 py-1 bg-gray-100 text-xs rounded-md">Anual</button>
+                            </div>
+                        </div>
+                        <div class="h-80">
+                            <canvas id="salesTrendChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Performance -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-lg mb-4 text-gray-700">Ventas por Categoría</h4>
+                            <div class="h-64">
+                                <div id="categoryChart"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-lg mb-4 text-gray-700">Top 5 Productos (Ingresos)</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">1</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Echo Dot (4th Gen)</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                            <div class="bg-amazon-orange h-1.5 rounded-full" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold ml-2">$1.2M</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">2</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Kindle Paperwhite</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 78%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold ml-2">$982K</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">3</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Fire TV Stick</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                            <div class="bg-purple-500 h-1.5 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold ml-2">$812K</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">4</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Ring Video Doorbell</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                            <div class="bg-green-500 h-1.5 rounded-full" style="width: 58%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold ml-2">$732K</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">5</div>
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Amazon Basics Chair</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                            <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-sm font-bold ml-2">$642K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Customer Analysis -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-lg mb-4 text-gray-700">Segmentación de Clientes</h4>
+                            <div class="h-64">
+                                <div id="customerSegmentationChart"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-lg mb-4 text-gray-700">Predicción de Ventas - Prox. Trimestre</h4>
+                            <div class="h-64">
+                                <canvas id="forecastChart"></canvas>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">Modelo ARIMA implementado con Prophet, MAPE=3.2%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Metodología Analítica</h3>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-amazon-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">1</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recolección y Limpieza</h4>
+                        <p class="text-gray-600">Pipeline ETL automatizado con Python (pandas) para procesar 500k+ registros diarios, manejando missing values y outliers.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">2</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Análisis Exploratorio</h4>
+                        <p class="text-gray-600">EDA con estadística descriptiva, análisis de correlación y tests de hipótesis para identificar patrones clave.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">3</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Modelado Predictivo</h4>
+                        <p class="text-gray-600">Regressiones, series temporales (ARIMA/Prophet) y clustering con scikit-learn para predecir tendencias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Recomendaciones Estratégicas</h3>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-amazon-orange">Oportunidades</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-green-500 mt-1">✓</div>
+                                    <p class="ml-2 text-gray-700">Aumentar inventario de electrónicos en regiones Oeste/Noreste</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-green-500 mt-1">✓</div>
+                                    <p class="ml-2 text-gray-700">Paquetes promocionales sábados con productos complementarios</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-green-500 mt-1">✓</div>
+                                    <p class="ml-2 text-gray-700">Programa de fidelización para segmento "High Spenders"</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-red-500">Riesgos</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-red-500 mt-1">!</div>
+                                    <p class="ml-2 text-gray-700">Baja rentabilidad en categoría Hogar (margen 12% vs promedio 23%)</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-red-500 mt-1">!</div>
+                                    <p class="ml-2 text-gray-700">Abandono de carrito aumentó 8% en dispositivos móviles</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-red-500 mt-1">!</div>
+                                    <p class="ml-2 text-gray-700">Estacionalidad pronunciada en electrónicos (Q4 crítico)</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="/assets/working.jpg">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Sebastian Diaz Tamayo</h3>
+                    <p class="text-amazon-orange font-medium mb-4">Data Analyst | Amazon</p>
+                    <p class="text-gray-600 mb-4">Professional with 5 years of experience in data analysis, specialized in e-commerce. Expert in SQL, Python, and data visualization. Certified in Data Science and Machine Learning.</p>
+                    <div class="flex space-x-4">
+                        <a href="www.linkedin.com/in/sebastiandiaztamayo" class="text-amazon-orange hover:underline font-medium">LinkedIn</a>
+                        <a href="https://github.com/nholasebsas?tab=projects" class="text-amazon-orange hover:underline font-medium">GitHub</a>
+                        <a href="www.instagram.com/nholasebsas" class="text-amazon-orange hover:underline font-medium">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="amazon-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm opacity-80">Professional Portfolio</p>
+                    <p class="text-xs opacity-60">Updated: August 2025</p>
+                </div>
+                <div>
+                    <p class="text-sm opacity-80">Developed with Python, SQL, and Power BI</p>
+                    <p class="text-xs opacity-60">All data is anonymized and complies with privacy policies.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  <section class="py-12 bg-white text-center">
+    <a href="/pdfs/analitics amazon.pdf" download class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out">
+      📄 Download Project Summary (PDF)
+    </a>
+  </section>
+    </footer>
+
+    <script>
+        // Sales Trend Chart
+        const salesCtx = document.getElementById('salesTrendChart').getContext('2d');
+        const salesTrendChart = new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep'],
+                datasets: [{
+                    label: 'Ventas 2025 (millones)',
+                    data: [8.2, 8.5, 9.1, 9.8, 10.2, 10.3, 11.4, 12.1, 12.8],
+                    borderColor: '#FF9900',
+                    backgroundColor: 'rgba(255, 153, 0, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.3,
+                    fill: true
+                },
+                {
+                    label: 'Ventas 2024 (millones)',
+                    data: [7.1, 7.3, 7.6, 7.9, 8.2, 8.4, 8.8, 9.1, 9.3],
+                    borderColor: '#666',
+                    backgroundColor: 'rgba(102, 102, 102, 0.1)',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Millones de USD'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Category Chart
+        const categoryOptions = {
+            series: [{
+                name: 'Ventas',
+                data: [4200000, 1800000, 1500000, 1200000, 800000, 500000, 300000]
+            }],
+            chart: {
+                type: 'bar',
+                height: '100%',
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#FF9900', '#146EB4', '#FF9900', '#146EB4', '#FF9900', '#146EB4', '#FF9900'],
+            plotOptions: {
+                bar: {
+                    borderRadius: 4,
+                    horizontal: true,
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                categories: ['Electrónicos', 'Hogar', 'Libros', 'Moda', 'Juguetes', 'Alimentos', 'Oficina'],
+                title: {
+                    text: 'Ingresos (USD)'
+                }
+            },
+            yaxis: {
+                labels: {
+                    formatter: function(value) {
+                        return '$' + (value / 1000000).toFixed(1) + 'M';
+                    }
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(value) {
+                        return '$' + value.toLocaleString() + ' (' + Math.round(value/12800000*100) + '%)';
+                    }
+                }
+            }
+        };
+        const categoryChart = new ApexCharts(document.querySelector("#categoryChart"), categoryOptions);
+        categoryChart.render();
+
+        // Customer Segmentation Chart
+        const customerOptions = {
+            series: [44, 55, 41, 17],
+            labels: ['Compradores frecuentes', 'Ocasionales', 'Nuevos clientes', 'Inactivos'],
+            chart: {
+                type: 'donut',
+                height: '100%'
+            },
+            colors: ['#FF9900', '#146EB4', '#232F3E', '#666666'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Total Clientes',
+                                formatter: function (w) {
+                                    return '156,000';
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(value, { seriesIndex, dataPointIndex, w }) {
+                        return value + '% (' + Math.round(value/100*156000) + ' clientes)';
+                    }
+                }
+            }
+        };
+        const customerChart = new ApexCharts(document.querySelector("#customerSegmentationChart"), customerOptions);
+        customerChart.render();
+
+        // Forecast Chart
+        const forecastCtx = document.getElementById('forecastChart').getContext('2d');
+        const forecastChart = new Chart(forecastCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Real',
+                    data: [11.4, 12.1, 12.8, null, null, null],
+                    borderColor: '#FF9900',
+                    backgroundColor: 'rgba(255, 153, 0, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.3
+                },
+                {
+                    label: 'Pronóstico',
+                    data: [null, null, 12.8, 15.2, 16.8, 19.1],
+                    borderColor: '#146EB4',
+                    backgroundColor: 'rgba(20, 110, 180, 0.1)',
+                    borderWidth: 3,
+                    borderDash: [5, 5],
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Millones de USD'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Counter animation for metrics
+        document.querySelectorAll('.animate-metric').forEach(el => {
+            el.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+            document.querySelectorAll('.animate-metric').forEach(el => {
+                el.style.opacity = '1';
+            });
+        }, 100);
+    </script>
+</body>
+</html>
+

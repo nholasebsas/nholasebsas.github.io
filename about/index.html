@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me – Sebastián Díaz Tamayo</title>
+  <meta name="description" content="Learn more about Sebastián Díaz Tamayo, a passionate data analyst with real-world experience, continuous learning and strong storytelling skills.">
+  <meta name="keywords" content="about me, Sebastián Díaz Tamayo, data analyst, personal story, skills, experience, portfolio">
+  <meta name="author" content="Sebastián Díaz Tamayo">
+  <meta property="og:title" content="About Sebastián Díaz Tamayo – Data Analyst">
+  <meta property="og:description" content="Explore the journey and mindset of Sebastián Díaz Tamayo, a junior data analyst focused on transforming data into meaningful insights.">
+  <meta property="og:image" content="/assets/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    .hero {
+      animation: fadeSlide 1.5s ease-in-out;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .pulse {
+      animation: pulseGlow 2s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="py-8 text-center">
+    <h1 class="text-4xl font-bold">About Me</h1>
+    <p class="text-slate-300 mt-2 text-lg">More than a resume — this is my mindset and mission</p>
+  </header>
+
+  <section class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-8 items-center hero">
+    <img src="/assets/profile.JPG" alt="Sebastián Díaz Tamayo" class="w-60 h-60 object-cover rounded-2xl shadow-xl border-4 border-blue-600 pulse" />
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Hi, I'm Sebastián Díaz Tamayo 👋</h2>
+      <p class="mb-4 text-slate-300">
+        I’m a data analyst with hands-on experience at Amazon, where I learned to work with real-time logistics data under pressure. I trained with Correlation One and built a solid foundation in data analysis, visualization and decision-making using SQL, Excel, Tableau, Power BI, Python and HTML.
+      </p>
+      <p class="mb-4 text-slate-300">
+        I'm naturally autodidact. I continuously sharpen my skills through personal projects and exploration of real-world data. My passion lies in transforming raw information into clear, visual insights that support business growth and impact lives.
+      </p>
+      <p class="text-slate-300">
+        I love solving problems, identifying hidden patterns, and crafting dashboards that speak for themselves. Whether it’s finance, sustainability, technology, or education — if there’s data, I’m in.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4">🛠 Skills</h3>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-slate-300">
+      <li class="card bg-slate-800 p-4 rounded-lg">Tableau</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">SQL</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">Excel</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">Power BI</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">Python</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">HTML & CSS</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">Storytelling</li>
+      <li class="card bg-slate-800 p-4 rounded-lg">Data Cleaning</li>
+    </ul>
+  </section>
+
+  <section class="mt-16 px-6 text-center">
+    <h3 class="text-2xl font-semibold mb-4">🚀 My Mission</h3>
+    <p class="text-lg text-slate-300 max-w-3xl mx-auto">
+      I want to empower businesses and people through data. My goal is to keep growing, contribute to meaningful projects, and become a data leader who turns complexity into clarity. This is just the beginning.
+    </p>
+  </section>
+
+  <footer class="bg-blue-900 text-white py-10 mt-16 text-center">
+    <p class="mb-2">📬 Contact me: <a href="mailto:nholasebsas@gmail.com" class="underline">nholasebsas@gmail.com</a></p>
+    <div class="flex justify-center gap-4 mb-2">
+      <a href="https://www.linkedin.com/in/sebastiandiaztamayo" target="_blank" class="underline">LinkedIn</a>
+      <a href="https://www.instagram.com/nholasebsas" target="_blank" class="underline">Instagram</a>
+      <a href="https://github.com/nholasebsas?tab=projects" target="_blank" class="underline">GitHub</a>
+    </div>
+    <p class="text-sm">© 2025 Sebastián Díaz Tamayo – All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'scale(1.05)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

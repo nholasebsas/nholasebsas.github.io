@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciberseguridad Global 2025 – Dashboard Interactivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(to bottom, #f1f5f9 0%, #ffffff 100%);
+      scroll-behavior: smooth;
+    }
+    .header-cyber {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+    }
+    .card {
+      transition: all 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 25px -5px rgba(30, 41, 59, 0.2);
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-cyber text-white py-6 shadow-md">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Panorama Global de Ciberseguridad</h1>
+      <span class="text-sm">Sebastián Díaz Tamayo • Proyecto Interactivo</span>
+    </div>
+  </header>
+
+  <section class="text-center py-16 bg-white">
+    <h2 class="text-4xl font-bold mb-4 fade-in">Ciberseguridad Global 2025</h2>
+    <p class="text-lg text-gray-700 max-w-2xl mx-auto fade-in">
+      Este dashboard visualiza los riesgos, ataques más comunes y presupuestos en ciberseguridad a nivel mundial. Fuentes: IBM, Statista, CheckPoint y WEF.
+    </p>
+  </section>
+
+  <section class="py-12 bg-slate-50">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-slate-600 font-medium mb-2">Coste Medio de Brecha</h4>
+        <p class="text-4xl font-bold text-rose-600">$4.45M</p>
+        <p class="text-sm text-gray-500">Promedio global por incidente</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-slate-600 font-medium mb-2">Ataques de Ransomware</h4>
+        <p class="text-4xl font-bold text-blue-600">+93%</p>
+        <p class="text-sm text-gray-500">Crecimiento desde 2022</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center card fade-in">
+        <h4 class="text-slate-600 font-medium mb-2">Tiempo Promedio de Detección</h4>
+        <p class="text-4xl font-bold text-amber-600">207 días</p>
+        <p class="text-sm text-gray-500">Desde la intrusión inicial</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Evolución de Ciberataques (2015–2025)</h3>
+        <canvas id="attackChart" height="250"></canvas>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Tipos de Amenazas Más Comunes</h3>
+        <div id="threatChart" class="h-64"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-slate-100">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6">Hallazgos Críticos</h3>
+      <ul class="list-disc list-inside text-lg text-slate-700 space-y-2">
+        <li>El ransomware sigue siendo la amenaza más costosa y en aumento.</li>
+        <li>El 95% de brechas se deben a errores humanos.</li>
+        <li>Las empresas tardan casi 7 meses en detectar intrusiones.</li>
+        <li>La inversión en ciberseguridad crecerá a $300B en 2026.</li>
+        <li>IA y Zero Trust son claves para reducir riesgos futuros.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="header-cyber text-white py-6">
+    <!-- About Me -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="/assets/working.jpg">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Sebastian Diaz Tamayo</h3>
+                    <p class="text-amazon-orange font-medium mb-4">Data Analyst | Amazon</p>
+                    <p class="text-gray-600 mb-4">Professional with 5 years of experience in data analysis, specialized in e-commerce. Expert in SQL, Python, and data visualization. Certified in Data Science and Machine Learning.</p>
+                    <div class="flex space-x-4">
+                        <a href="www.linkedin.com/in/sebastiandiaztamayo" class="text-amazon-orange hover:underline font-medium">LinkedIn</a>
+                        <a href="https://github.com/nholasebsas?tab=projects" class="text-amazon-orange hover:underline font-medium">GitHub</a>
+                        <a href="www.instagram.com/nholasebsas" class="text-amazon-orange hover:underline font-medium">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="amazon-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm opacity-80">Professional Portfolio</p>
+                    <p class="text-xs opacity-60">Updated: August 2025</p>
+                </div>
+                <div>
+                    <p class="text-sm opacity-80">Developed with Python, SQL, and Power BI</p>
+                    <p class="text-xs opacity-60">All data is anonymized and complies with privacy policies.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  <section class="py-12 bg-white text-center">
+    <a href="/pdfs/Ciberseguridad.pdf" download class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out">
+      📄 Download Project Summary (PDF)
+    </a>
+  </section>
+
+</footer>
+
+  <script>
+    const ctxAttack = document.getElementById('attackChart').getContext('2d');
+    new Chart(ctxAttack, {
+      type: 'line',
+      data: {
+        labels: ['2015','2017','2019','2021','2023','2025'],
+        datasets: [{
+          label: 'Ciberataques reportados (millones)',
+          data: [3.5, 6.1, 9.3, 11.8, 15.7, 18.9],
+          borderColor: '#0f172a',
+          backgroundColor: 'rgba(15, 23, 42, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Millones de Incidentes' }
+          }
+        }
+      }
+    });
+
+    const chartThreat = new ApexCharts(document.querySelector("#threatChart"), {
+      chart: { type: 'donut', height: '100%' },
+      series: [34, 27, 19, 11, 9],
+      labels: ['Ransomware', 'Phishing', 'Malware', 'DDoS', 'Spyware'],
+      colors: ['#ef4444','#0ea5e9','#facc15','#10b981','#6366f1'],
+      legend: { position: 'bottom' },
+      tooltip: { y: { formatter: val => val + '%' } },
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              total: {
+                show: true,
+                label: 'Amenazas',
+                formatter: () => '100%'
+              }
+            }
+          }
+        }
+      }
+    });
+    chartThreat.render();
+  </script>
+</body>
+</html>

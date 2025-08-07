@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – Sebastián Díaz Tamayo</title>
+  <meta name="description" content="Explore all data projects by Sebastián Díaz Tamayo. Interactive dashboards, real business cases, and downloadable insights.">
+  <meta name="keywords" content="data portfolio, dashboards, data analytics, business intelligence, Sebastián Díaz Tamayo, projects">
+  <meta name="author" content="Sebastián Díaz Tamayo">
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
+    }
+    .thumbnail {
+      border-radius: 0.5rem;
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center py-12">
+    <h1 class="text-4xl font-bold text-white mb-4">My Data Projects</h1>
+    <p class="text-slate-300 text-lg max-w-xl mx-auto">Dive into a curated collection of data projects spanning multiple industries and real-world insights.</p>
+  </header>
+
+  <main class="px-6 md:px-12 pb-20">
+    <div id="projectGrid" class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Cards will be inserted here by JavaScript -->
+    </div>
+  </main>
+
+  <script>
+    const projects = [
+      { title: "AI Industry", file: "ai industry.html", thumb: "/assets/ai_industry.png" },
+      { title: "Mental Health Data", file: "mental health.html", thumb: "/assets/mental_health.png" },
+      { title: "Remote Work Trends", file: "remote work.html", thumb: "/assets/remote_work.png" },
+      { title: "Cybersecurity Analysis", file: "cybersecurity.html", thumb: "/assets/cybersecurity.png" },
+      { title: "E-commerce Trends", file: "ecommerce trends.html", thumb: "/assets/ecommerce_trends.png" },
+      { title: "Space Industry Impact", file: "space industry.html", thumb: "/assets/space_industry.png" },
+      { title: "Education Inequality", file: "education inequality.html", thumb: "/assets/education_inequality.png" },
+      { title: "CO2 Emissions", file: "co2 emisiones.html", thumb: "/assets/co2.png" },
+      { title: "Risk Management", file: "risk.html", thumb: "/assets/risk.png" }
+    ];
+
+    const grid = document.getElementById("projectGrid");
+
+    projects.forEach((p, i) => {
+      const card = document.createElement("a");
+      card.href = p.file;
+      card.className = "card fade-in block";
+      card.style.transitionDelay = `${i * 100}ms`;
+      card.innerHTML = `
+        <img src="${p.thumb}" alt="${p.title}" class="thumbnail">
+        <h2 class="project-title text-white">${p.title}</h2>
+      `;
+      grid.appendChild(card);
+    });
+
+    const fadeIn = () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener("scroll", fadeIn);
+    window.addEventListener("load", fadeIn);
+  </script>
+</body>
+</html>
