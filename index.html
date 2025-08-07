@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sebastián Díaz Tamayo – Data Analyst Portfolio</title>
+  <meta name="description" content="Dynamic portfolio of Sebastián Díaz Tamayo – Junior Data Analyst specialized in storytelling, dashboards, SQL, Python, Tableau and Excel.">
+  <meta name="keywords" content="data analyst, portfolio, tableau, sql, dashboards, data storytelling, sebastian diaz tamayo">
+  <meta name="author" content="Sebastián Díaz Tamayo">
+  <meta property="og:title" content="Sebastián Díaz Tamayo – Data Analyst Portfolio">
+  <meta property="og:description" content="Explore the animated and interactive portfolio of Sebastián Díaz Tamayo, a data analyst passionate about insights and storytelling.">
+  <meta property="og:image" content="/assets/favicon.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      background-color: #3b82f6;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      background-color: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold">Sebastián Díaz Tamayo</h1>
+    <p class="text-slate-300 mt-2 text-lg">Data Analyst turning complexity into clarity</p>
+  </header>
+
+  <section class="hero text-center px-6 mb-12">
+    <img src="/assets/working.jpg" alt="Sebastián Díaz Tamayo" class="mx-auto w-48 h-48 object-cover rounded-full float shadow-lg border-4 border-blue-500 pulse">
+    <p class="mt-6 text-lg max-w-2xl mx-auto">
+      I am a data analyst with hands-on experience at Amazon and training from Correlation One. I use SQL, Python, Tableau, Excel and visual storytelling to turn data into decisions. I’m obsessed with solving real-world problems and always learning.
+    </p>
+    <div class="flex justify-center gap-4 mt-6 flex-wrap">
+      <a href="/about/index.html" target="_blank" class="btn">About Me</a>
+      <a href="/cv/index.html" target="_blank" class="btn">View CV</a>
+      <a href="/blog/index.html" target="_blank" class="btn">Blog</a>
+      <a href="/projects/index.html" class="btn">Projects</a>
+    </div>
+  </section>
+
+  <section id="projects" class="px-6 py-10 bg-slate-900">
+    <h2 class="text-3xl font-bold text-center mb-8">Featured Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">AI Industry Dashboard</h3>
+        <p class="text-slate-400 text-sm">Impact and transformation driven by artificial intelligence.</p>
+        <a href="/projects/ai industry.html" target="_blank" class="text-blue-400 underline mt-4 inline-block">View Project</a>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Space Industry Dashboard</h3>
+        <p class="text-slate-400 text-sm">Data on commercial space sector and innovation growth.</p>
+        <a href="/projects/space industry.html" target="_blank" class="text-blue-400 underline mt-4 inline-block">View Project</a>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-semibold mb-2">Cybersecurity Dashboard</h3>
+        <p class="text-slate-400 text-sm">Threats, investments, ransomware and protection trends.</p>
+        <a href="/projects/cybersecurity.html" target="_blank" class="text-blue-400 underline mt-4 inline-block">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-900 text-white py-8 text-center">
+    <p class="mb-2">📬 Contact: <a href="mailto:nholasebsas@gmail.com" class="underline">nholasebsas@gmail.com</a></p>
+    <div class="flex justify-center gap-4 mb-2">
+      <a href="https://www.instagram.com/nholasebsas" target="_blank" class="underline">Instagram</a>
+      <a href="https://www.linkedin.com/in/sebastiandiaztamayo" target="_blank" class="underline">LinkedIn</a>
+      <a href="https://github.com/nholasebsas?tab=projects" target="_blank" class="underline">GitHub</a>
+    </div>
+    <p class="text-sm">© 2025 Sebastián Díaz Tamayo – All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Ejemplo simple de interacción
+    document.querySelectorAll(".btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.add("scale-95");
+        setTimeout(() => btn.classList.remove("scale-95"), 150);
+      });
+    });
+  </script>
+</body>
+</html>
